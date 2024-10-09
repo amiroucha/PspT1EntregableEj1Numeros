@@ -5,9 +5,16 @@ import java.util.Random;
 public class Main {
     public static void main(String[] args) {
 
-        try
-        {
-            int totNumeros = Integer.parseInt(args[0]);//numeros a generar
+        int totNumeros = 0;
+        if (args.length > 0){//compruebo que me haya introducido argumento
+            try
+            {
+                totNumeros = Integer.parseInt(args[0]);//numeros a generar, y comprueba que sea numero
+
+            }catch (NumberFormatException e)
+            {
+                System.out.println("Lo introducido no es un numero ");
+            }
             int contador = 0;//para contar el numero de primos que van saliendo
 
             Random random = new Random();
@@ -29,12 +36,8 @@ public class Main {
                 }
             }
 
-        }catch (ArrayIndexOutOfBoundsException e)
-        {
-            System.out.println("No has introducido ningun numero");
-        }catch (NumberFormatException e)
-        {
-            System.out.println("Lo introducido no es un numero ");
+        }else {
+            System.out.println("NO has introducido ningun argumento");
         }
 
 
@@ -51,5 +54,4 @@ public class Main {
         }
         return true;//si no entra al if es primo
     }
-
 }
